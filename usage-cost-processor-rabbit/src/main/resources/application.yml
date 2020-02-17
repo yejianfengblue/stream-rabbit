@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        # bind the input channel to the usage-detail RabbitMQ exchange through the usage-detail.usage-cost-consumer durable queue
+        input:
+          destination: usage-detail
+          group: usage-cost-consumer
+        output:
+          destination: usage-cost
+          producer:
+            requiredGroups: logger

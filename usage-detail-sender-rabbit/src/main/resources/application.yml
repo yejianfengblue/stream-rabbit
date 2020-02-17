@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output: # channel name
+          # bind output to the "usage-detail" RabbitMQ exchange
+          destination: usage-detail
+          producer:
+            # create a durable queue named "usage-detail.usage-cost-consumer" which consumes from usage-detail RabbitMQ exchange
+            requiredGroups: usage-cost-consumer
